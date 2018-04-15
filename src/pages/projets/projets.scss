@@ -1,0 +1,40 @@
+page-projets {
+
+    ion-item{
+        vertical-align: middle;
+        border: 2px solid color($colors, task_border) !important;
+        border-radius: 2px;
+        margin-top: 10px !important;
+        
+        .projectName{
+            position: relative;
+            left: 10px;
+            top: 25%;
+            // border: 2px solid color($colors, priority-4);
+            width: 75%;
+        }
+
+        p{  
+            color: color($colors, dark) !important;
+        }
+
+    }
+
+    .myIcon{
+        border: 1px solid color($colors, priority-12) !important;
+        border-radius: 2px;
+        padding-left: 4px;
+        padding-right: 4px;
+        padding-top: 2px;
+        padding-bottom: 2px;
+
+        position: absolute;
+        right: 10px;
+        top: 25%;
+        
+    }
+
+    .title{
+        color: #616161;
+    }
+}

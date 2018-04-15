@@ -1,29 +1,24 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>General</ion-title>
+    <ion-title>
+       {{currentProject.name}}
+    </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
 
-  <ion-grid *ngIf="taskList.length == 0">
-    <ion-row>
+  <ion-grid>
+
+    <ion-row *ngIf="taskList.length == 0">
       <ion-col text-center>
-        <h2>Alors rien à faire ?</h2>
-        <h4>Vérifiez vos projets en cours</h4>
+        <h4>Projet vide</h4>
       </ion-col>
     </ion-row>
-    <ion-row>
-      <ion-col text-center>
-        <button ion-button full (tap)="goProjects()">Projets</button>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col text-center>
-        <button ion-button full color="secondary" (tap)="goAdds()" >Ajouter tâches/projets</button>
-      </ion-col>
-    </ion-row>
+
   </ion-grid>
+
+
 
   <ion-list>
 
@@ -39,7 +34,8 @@
       <ion-checkbox (ionChange)="removeTask(task.id)"></ion-checkbox>
     </ion-item>
 
-
   </ion-list>
+
+  
 
 </ion-content>

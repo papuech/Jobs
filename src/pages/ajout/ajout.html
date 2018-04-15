@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Ajouts</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+
+  <!-- NEW PROJECT PART -->
+  <ion-list>
+    <ion-item>
+      <ion-label>Nouveau projet</ion-label>
+      <ion-input [(ngModel)]="projectName" type="text" value=""></ion-input>
+    </ion-item>
+    <ion-item>
+      <div>
+        <button (tap)="projectAdder()" ion-button color="secondary" block padding>Ajouter projet</button>
+      </div>
+    </ion-item>
+  </ion-list>
+
+  <!-- NEW TASK PART -->
+  <ion-list>
+
+    <ion-item>
+      <ion-label>Nouvelle tâche</ion-label>
+      <ion-input [(ngModel)]="taskName" type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Projet parent</ion-label>
+      <ion-select [(ngModel)]="selectedProject" interface="popover">
+        <ion-option *ngFor="let project of projectArray" [value]="project.id">{{project.name}}</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Priorité</ion-label>
+
+      <ion-select [(ngModel)]="priority" interface="popover">
+        
+        <!-- Rajouter un petit flag de couleur ici -->
+
+        <ion-option value="normal" >Normal</ion-option>
+        <!-- <ion-option value="normal" selected>Normal</ion-option> -->
+        <ion-option value="important">Important</ion-option>
+        <ion-option value="absolue" color="priority-1">Absolue</ion-option>
+      
+      </ion-select>
+
+    </ion-item>
+
+    <ion-item>
+      <div>
+        <button (tap)="taskAdder()" ion-button color="secondary" block padding>Ajouter tâche</button>
+      </div>
+    </ion-item>
+  
+  </ion-list>
+
+
+
+</ion-content>

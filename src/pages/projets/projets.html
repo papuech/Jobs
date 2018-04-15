@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Projets</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+
+  <div class="title" text-center>
+    <h3>Selectionnez un projet</h3>
+  </div>
+
+  <ion-list inset>
+
+    <ion-item *ngFor="let project of projectArray" color="task_bg">
+      <div class="projectName" (tap)="seeProject(project)">
+        <p>{{project.name}}</p>
+      </div>
+      <ion-icon (tap)="removeProject(project)" class="myIcon" name="remove-circle" color="priority-12"></ion-icon>
+    </ion-item>
+     
+    <!-- 
+    <ion-item color="task_bg">
+        <div class="projectName">
+          <p>Test</p>
+        </div>
+        <ion-icon class="myIcon" name="remove-circle" color="priority-1"></ion-icon>
+    </ion-item> -->
+
+  </ion-list>
+
+</ion-content>

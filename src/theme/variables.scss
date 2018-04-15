@@ -34,12 +34,24 @@ $app-direction: ltr;
 // The "primary" color is the only required color in the map.
 
 $colors: (
-  primary:    #488aff,
-  secondary:  #32db64,
-  danger:     #f53d3d,
-  light:      #f4f4f4,
-  dark:       #222
+  primary:    #90A4AE,
+  secondary:  #AED581,
+  danger:     #e57373,
+  light:      #E0E0E0,
+  dark:       #616161,
+  darker:    #212121,
+
+  task_bg: #F5F5F5,
+  task_border: #BDBDBD,
+
+  priority-1: #d50000,
+  priority-12: #f44336,
+  priority-2: #FF6D00,
+  priority-3: #FFD600,  
+  priority-4: #00B8D4
+
 );
+
 
 
 // App iOS Variables
