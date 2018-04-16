@@ -8,6 +8,7 @@ import { SubProjectPage } from "../subproject/subproject";
 // Sevices
 import { SaverService } from "../../services/saver.service";
 import { NotifyService } from "../../services/notify.service";
+import { UtilsService } from "../../services/utils.service";
 
 // Models
 import { Project } from '../../models/project.model';
@@ -24,7 +25,7 @@ export class ProjetsPage {
 
   projectArray = new Array<Project>();
 
-  constructor(public navCtrl: NavController, public notifyService: NotifyService, private saver: SaverService, public alertCtrl: AlertController) {
+  constructor(public navCtrl: NavController, public notifyService: NotifyService, private saver: SaverService, public alertCtrl: AlertController, private utils: UtilsService) {
   }
 
   //update the project list
@@ -53,7 +54,6 @@ export class ProjetsPage {
           text: 'Supprimer',
           handler: () => {
             this.saver.delProject(project.id, (res) => {
-              // this.notify('project deleted');
               this.initializeProjects();
             })
           }
@@ -65,6 +65,12 @@ export class ProjetsPage {
 
   public seeProject(projectSelected){
     this.navCtrl.push(SubProjectPage, { project: projectSelected});
+  }
+
+  public addProject(){
+    this.utils.addQuickProject((res) => {
+      this.initializeProjects();
+    });
   }
 
 }

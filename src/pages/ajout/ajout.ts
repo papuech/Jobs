@@ -7,6 +7,7 @@ import { Keyboard } from '@ionic-native/keyboard';
 // Sevices
 import { SaverService } from "../../services/saver.service";
 import { NotifyService } from "../../services/notify.service";
+import { UtilsService } from "../../services/utils.service";
 
 // Models
 import { Project } from '../../models/project.model';
@@ -31,7 +32,7 @@ export class AjoutPage {
 
 
 
-  constructor(public navCtrl: NavController, public notifyService: NotifyService, private keyboard: Keyboard, private saver: SaverService) {
+  constructor(public navCtrl: NavController, public notifyService: NotifyService, private keyboard: Keyboard, private saver: SaverService, private utils: UtilsService) {
   }
 
   //update the project list
@@ -48,7 +49,8 @@ export class AjoutPage {
 
   public projectAdder(): void {
     this.keyboard.close();
-    if (this.projectName != '' && this.projectName != null) {
+    this.projectName = this.utils.escapeQuote(this.projectName);
+    if (this.projectName != '' && this.projectName != ' ' && this.projectName != null) {
       this.saver.addProject(this.projectName, 1, (result) => {
         if (result == true) {
           this.notifyService.notify('Projet ajouté');
@@ -63,8 +65,8 @@ export class AjoutPage {
 
   public taskAdder(): void {
     this.keyboard.close();
-
-    if (this.checkTaskName() && this.checkPriority()) {
+   
+    if (this.utils.checkTaskName(this.taskName) && this.utils.checkPriority(this.priority)) {
       this.saver.addTask(this.taskName, this.selectedProject, this.priority, (res) => {
         this.taskName = '';
       });
@@ -73,24 +75,5 @@ export class AjoutPage {
     }
 
   }
-
-  // Methods to check inputs
-  public checkPriority(): boolean {
-    if (this.priority != 'important' && this.priority != 'absolue' && this.priority != 'normal' ) {
-      this.notifyService.notify('Bad priority:' + this.priority);
-      return false;
-    }else {
-      return true;
-    }
-  }
-  public checkTaskName(): boolean {
-    if (this.taskName != '' && this.taskName != null) {
-      return true;
-    } else {
-      this.notifyService.notify('Bad Name : ' + this.taskName);
-      return false;
-    }
-  }
-
 
 }

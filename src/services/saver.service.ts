@@ -177,7 +177,7 @@ export class SaverService {
                 callback(res);
             })
             .catch((err) => {
-                this.notifyService.notify('fail to add task');
+                this.notifyService.notify(err);
                 callback(err);
             }
             );

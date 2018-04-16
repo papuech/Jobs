@@ -20,6 +20,7 @@ import { SQLite } from '@ionic-native/sqlite';
 // Services
 import { SaverService } from "../services/saver.service";
 import { NotifyService } from "../services/notify.service";
+import { UtilsService } from "../services/utils.service";
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { NotifyService } from "../services/notify.service";
     SaverService,
     Keyboard,
     NotifyService,
+    UtilsService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

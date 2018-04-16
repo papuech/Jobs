@@ -4,6 +4,7 @@ import { NavController, NavParams } from 'ionic-angular';
 // Sevices
 import { SaverService } from "../../services/saver.service";
 import { NotifyService } from "../../services/notify.service";
+import { UtilsService } from "../../services/utils.service";
 
 // Models
 import { Project } from '../../models/project.model';
@@ -22,7 +23,13 @@ export class SubProjectPage {
   currentProject: Project;
   taskList = new Array<Task>();
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public notifyService: NotifyService, private saver: SaverService) {
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams, 
+    public notifyService: NotifyService, 
+    private saver: SaverService,
+    private utils: UtilsService
+  ){
     this.currentProject = this.navParams.get('project');
   }
 
@@ -40,6 +47,12 @@ export class SubProjectPage {
     this.saver.removeTask(id, (res) => {
       this.initializeTasks();
     })
+  }
+
+  public addQuickTask() {
+    this.utils.addQuickTask(this.currentProject.getId(), (res) => {
+      this.initializeTasks();
+    });
   }
 
   

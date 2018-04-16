@@ -7,6 +7,7 @@ It mainly uses the database SQLite as a native module.
 
 As a todo list, the application will allow you to create tasks and project. A task is a stuff to do. A task can have several priorities type such as "normal", "important", "absolute". It can also be global or it can be a part of a project. A project is a simple task holer.
 Create as much as project and task you want.
+A task or a project can easily be created with the "add" button in the navbar.
 To remove a done task, just check it on the screen.
 To save data, the application uses SQLite. This way, most of the database requests are in SQL.
 
@@ -21,9 +22,12 @@ Moreover, the application is now only written in French. The back code is all in
 
 ## In the future
 
-The application might integrate vocal recognition to help save tasks and projects.
-We could also imagine a statistical system to deal with monthly efficiency or stuff related.
-The application will also need to be translated to become more flexible
+Notes :
+* Updating tasks and projects
+* Vocal recognition to save projects
+* statistical analisys
+* language translation
+
 
 ### Installation
 
